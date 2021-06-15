@@ -1,8 +1,20 @@
+import Head from "next/head";
 import { MongoClient } from "mongodb";
 import EventList from "../components/events/EventList";
 
 const HomePage = (props) => {
-  return <EventList events={props.events}>Home Page</EventList>;
+  return (
+    <>
+      <Head>
+        <title>Get Together - Home</title>
+        <meta
+          name="description"
+          content="Browse through a list of happening event in your city today!"
+        />
+      </Head>
+      <EventList events={props.events}>Home Page</EventList>
+    </>
+  );
 };
 
 // this function can only be used within the pages folder

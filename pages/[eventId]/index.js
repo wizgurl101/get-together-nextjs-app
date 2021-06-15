@@ -1,14 +1,21 @@
+import Head from "next/head";
 import { MongoClient, ObjectId } from "mongodb";
 import EventDetail from "../../components/events/EventDetail";
 
 const EventDetailPage = (props) => {
   return (
-    <EventDetail
-      image={props.eventData.image}
-      title={props.eventData.title}
-      address={props.eventData.address}
-      description={props.eventData.description}
-    />
+    <>
+      <Head>
+        <title>{props.eventData.title}</title>
+        <meta name="description" content={props.eventData.description} />
+      </Head>
+      <EventDetail
+        image={props.eventData.image}
+        title={props.eventData.title}
+        address={props.eventData.address}
+        description={props.eventData.description}
+      />
+    </>
   );
 };
 
