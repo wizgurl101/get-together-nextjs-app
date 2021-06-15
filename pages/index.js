@@ -1,5 +1,5 @@
+import Layout from "../components/layout/Layout";
 import EventList from "../components/events/EventList";
-import EventItem from "../components/events/EventItem";
 
 //  dummy data
 const DUMMY_EVENTS = [
@@ -23,10 +23,10 @@ const DUMMY_EVENTS = [
 
 const HomePage = () => {
   return (
-    <>
+    <Layout>
       <h1>Home Page</h1>
       <EventList events={DUMMY_EVENTS}>Home Page</EventList>
-    </>
+    </Layout>
   );
 };
 
