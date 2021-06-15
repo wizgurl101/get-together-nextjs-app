@@ -5,11 +5,7 @@ const NewEventPage = () => {
     console.log("add new event");
   };
 
-  return (
-    <>
-      <NewEventForm onAddEvent={addEventHandler} />
-    </>
-  );
+  return <NewEventForm onAddEvent={addEventHandler} />;
 };
 
 export default NewEventPage;
