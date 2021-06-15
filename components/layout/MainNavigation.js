@@ -11,7 +11,7 @@ const MainNavigation = () => {
             <Link href="/">All Events</Link>
           </li>
           <li>
-            <Link href="/new-meetup">Add New Event</Link>
+            <Link href="/new-event">Add New Event</Link>
           </li>
         </ul>
       </nav>

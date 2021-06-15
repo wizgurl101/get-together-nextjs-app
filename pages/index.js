@@ -1,4 +1,3 @@
-import Layout from "../components/layout/Layout";
 import EventList from "../components/events/EventList";
 
 //  dummy data
@@ -22,12 +21,7 @@ const DUMMY_EVENTS = [
 ];
 
 const HomePage = () => {
-  return (
-    <Layout>
-      <h1>Home Page</h1>
-      <EventList events={DUMMY_EVENTS}>Home Page</EventList>
-    </Layout>
-  );
+  return <EventList events={DUMMY_EVENTS}>Home Page</EventList>;
 };
 
 export default HomePage;

@@ -7,7 +7,6 @@ const NewEventPage = () => {
 
   return (
     <>
-      <h1>New Event Page</h1>
       <NewEventForm onAddEvent={addEventHandler} />
     </>
   );
