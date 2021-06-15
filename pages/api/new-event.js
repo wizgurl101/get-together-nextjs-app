@@ -19,10 +19,7 @@ const handler = async (req, res) => {
 
       const getTogetherCollection = db.collection("getTogether");
 
-      const result = await getTogetherCollection.insertOne(newEventData);
-
-      console.log(result);
-
+      await getTogetherCollection.insertOne(newEventData);
       client.close();
 
       // successfully added new event to DB
