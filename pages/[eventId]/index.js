@@ -1,3 +1,4 @@
+import { MongoClient, ObjectId } from "mongodb";
 import EventDetail from "../../components/events/EventDetail";
 
 const EventDetailPage = (props) => {
@@ -11,35 +12,66 @@ const EventDetailPage = (props) => {
   );
 };
 
-export const getStaticPaths = () => {
+export const getStaticPaths = async () => {
+  let eventArray = [];
+
+  try {
+    const client = await MongoClient.connect(
+      "mongodb+srv://wiz:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
+    );
+
+    const db = client.db();
+    const getTogetherCollection = db.collection("getTogether");
+
+    eventArray = await getTogetherCollection.find({}, { _id: 1 }).toArray();
+    client.close();
+  } catch (error) {
+    console.error(error);
+  }
+
   return {
     // setting fallback to false means that all supportive paths contain all the params
     // values in its path.
     fallback: false,
-    paths: [
-      {
-        params: {
-          eventId: "e1",
-        },
-      },
-    ],
+    paths: eventArray.map((event) => ({
+      params: { eventId: event._id.toString() },
+    })),
   };
 };
 
-export const getStaticProps = (context) => {
-  //  fetch data for a single event
-
+export const getStaticProps = async (context) => {
   const eventId = context.params.eventId;
+  let selectedEvent = null;
+
+  try {
+    const client = await MongoClient.connect(
+      "mongodb+srv://wiz:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
+    );
+
+    const db = client.db();
+    const getTogetherCollection = db.collection("getTogether");
+
+    selectedEvent = await getTogetherCollection.findOne({
+      _id: ObjectId(eventId),
+    });
+
+    if (selectedEvent === null) {
+      throw new Error("No Event Found");
+    }
+
+    client.close();
+  } catch (error) {
+    console.error(error);
+  }
 
   return {
     props: {
       eventData: {
-        id: eventId,
-        image:
-          "https://thehill.com/sites/default/files/styles/article_full/public/ca_internationalwomensday_illustration_istock.jpg?itok=hOev3rFs",
-        title: "First Event",
-        address: "101 Fake Street, Fake City",
-        description: "Event description",
+        id: selectedEvent._id.toString(),
+        title: selectedEvent.title,
+        address: selectedEvent.address,
+        image: selectedEvent.image,
+        description: selectedEvent.description,
       },
     },
   };
