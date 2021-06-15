@@ -20,8 +20,23 @@ const DUMMY_EVENTS = [
   },
 ];
 
-const HomePage = () => {
-  return <EventList events={DUMMY_EVENTS}>Home Page</EventList>;
+const HomePage = (props) => {
+  return <EventList events={props.events}>Home Page</EventList>;
+};
+
+// this function can only be used within the pages folder
+// NOTE: this function will only execute during the build process
+export const getStaticProps = () => {
+  // this function must return an object and within that object
+  // the field props will be used as the props object for this HomePage component
+  return {
+    props: {
+      events: DUMMY_EVENTS,
+    },
+    // incentmental static generation which takes a number of seconds it takes
+    // before regenerating this paper for each request to avoid slate data
+    revalidate: 10,
+  };
 };
 
 export default HomePage;
