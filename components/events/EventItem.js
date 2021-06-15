@@ -1,9 +1,9 @@
 import Card from "../UI/Card";
 import classes from "./EventItem.module.css";
 
-const EventItem = () => {
+const EventItem = (props) => {
   return (
-    <li className={classes.image}>
+    <li className={classes.item}>
       <Card>
         <div className={classes.image}>
           <img src={props.image} alt={props.title} />

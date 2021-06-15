@@ -43,4 +43,6 @@
 .actions button:hover,
 .actions button:active {
   background-color: #ed845f;
+  border-color: #ed845f;
+  color: white;
 }
