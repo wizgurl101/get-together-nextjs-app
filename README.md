@@ -1,1 +1,1 @@
-##Get Together Event Application with NextJS
+# Get Together Event Application with NextJS
