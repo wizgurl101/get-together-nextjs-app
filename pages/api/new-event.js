@@ -12,7 +12,7 @@ const handler = async (req, res) => {
     try {
       // NOTE: this code will not end up on client side
       const client = await MongoClient.connect(
-        "mongodb+srv://wiz:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
+        "mongodb+srv://user:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
       );
 
       const db = client.db();

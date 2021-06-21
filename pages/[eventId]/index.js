@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
 
   try {
     const client = await MongoClient.connect(
-      "mongodb+srv://wiz:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
+      "mongodb+srv://user:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
     );
 
     const db = client.db();
@@ -52,7 +52,7 @@ export const getStaticProps = async (context) => {
 
   try {
     const client = await MongoClient.connect(
-      "mongodb+srv://wiz:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
+      "mongodb+srv://user:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
     );
 
     const db = client.db();
