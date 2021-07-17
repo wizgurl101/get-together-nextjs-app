@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
 
   try {
     const client = await MongoClient.connect(
-      "mongodb+srv://wiz:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
+      "mongodb+srv://wonderwoman:hello@cluster0.net/gettogether"
     );
 
     const db = client.db();
@@ -52,11 +52,11 @@ export const getStaticProps = async (context) => {
 
   try {
     const client = await MongoClient.connect(
-      "mongodb+srv://wiz:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
+      "mongodb+srv://hnxh2.mongodb.net/gettogether?retryWrites=true&w=majority"
     );
 
     const db = client.db();
-    const getTogetherCollection = db.collection("getTogether");
+    const getTogetherCollection = db.collection("someDatabase");
 
     selectedEvent = await getTogetherCollection.findOne({
       _id: ObjectId(eventId),
