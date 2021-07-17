@@ -1,5 +1,9 @@
 # Get Together Event Application with NextJS
 
+<p align="center">
+<img src="gettogether1.jpg" width="80%">
+</p>
+
 ## Description
 
 
