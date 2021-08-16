@@ -13,8 +13,9 @@ This project was coded while following along the NextJS section of Academind's R
 
 ## What have I learnt from this project
 - Intro to using the NextJS framework which provide tools to make a full-stack web app
-- Use this framework to make a basic CRUD app
+- Use this framework to make a basic CRUD (create, read, update and delete) app
 - NextJS is suitable if SEO is a concern
+- Learnt about static site generation (SSG) and SSG data fetching
 
 ## Screenshots
 <p align="center">
