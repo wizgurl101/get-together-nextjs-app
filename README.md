@@ -9,7 +9,7 @@ Application let user add an event, see list of all the events and view event det
 
 ## About the project
 
-This project was coded while following along the NextJS section of Academind's React the Complete Guide course (and it was long to get thought).
+This project was build while following along the NextJS section of Academind's React the Complete Guide course.
 
 ## What have I learnt from this project
 - Intro to using the NextJS framework which provide tools to make a full-stack web app
