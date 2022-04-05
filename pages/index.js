@@ -28,14 +28,12 @@ export const getStaticProps = async () => {
   let events = [];
 
   try {
-    const client = await MongoClient.connect(
-      "mongodb+srv://superman:robin@mongodb.net/gettogether?retryWrites=true&w=majority"
-    );
+    const client = await MongoClient.connect(process.env.MONGO_URI);
 
     const db = client.db();
-    const getTogetherCollection = db.collection("gettogether");
+    const collection = db.collection(process.env.MONGO_COLLECTION_NAME);
 
-    events = await getTogetherCollection.find().toArray();
+    events = await collection.find().toArray();
     client.close();
   } catch (error) {
     console.error(error);

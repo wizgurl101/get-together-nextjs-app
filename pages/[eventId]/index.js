@@ -23,18 +23,12 @@ export const getStaticPaths = async () => {
   let eventArray = [];
 
   try {
-    const client = await MongoClient.connect(
-<<<<<<< HEAD
-      "mongodb+srv://wonderwoman:hello@cluster0.net/gettogether"
-=======
-      "mongodb+srv://user:root@gettogetherdb.a4h6k.mongodb.net/getTogether?retryWrites=true&w=majority"
->>>>>>> 000cfc038c0136f74079ba2c4e8a3967490c5ea7
-    );
+    const client = await MongoClient.connect(process.env.MONGO_URI);
 
     const db = client.db();
-    const getTogetherCollection = db.collection("getTogether");
+    const collection = db.collection(process.env.MONGO_COLLECTION_NAME);
 
-    eventArray = await getTogetherCollection.find({}, { _id: 1 }).toArray();
+    eventArray = await collection.find({}, { _id: 1 }).toArray();
     client.close();
   } catch (error) {
     console.error(error);
@@ -55,14 +49,12 @@ export const getStaticProps = async (context) => {
   let selectedEvent = null;
 
   try {
-    const client = await MongoClient.connect(
-      "mongodb+srv://hnxh2.mongodb.net/gettogether?retryWrites=true&w=majority"
-
+    const client = await MongoClient.connect(process.env.MONGO_URI);
 
     const db = client.db();
-    const getTogetherCollection = db.collection("someDatabase");
+    const collection = db.collection(process.env.MONGO_COLLECTION_NAME);
 
-    selectedEvent = await getTogetherCollection.findOne({
+    selectedEvent = await collection.findOne({
       _id: ObjectId(eventId),
     });
 

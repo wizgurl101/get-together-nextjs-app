@@ -10,16 +10,12 @@ const handler = async (req, res) => {
     const newEventData = req.body;
 
     try {
-      // NOTE: this code will not end up on client side
-      const client = await MongoClient.connect(
-        "mongodb+srv://superman:root@mongodb.net/gettogether"
-      );
-
+      const client = await MongoClient.connect(process.env.MONGO_URI);
       const db = client.db();
 
-      const getTogetherCollection = db.collection("someCollection");
+      const collection = db.collection(process.env.MONGO_COLLECTION_NAME);
 
-      await getTogetherCollection.insertOne(newEventData);
+      await collection.insertOne(newEventData);
       client.close();
 
       // successfully added new event to DB
